@@ -66,7 +66,7 @@ public class FieldsFragment extends Fragment {
         list.add(new FieldInfo("Sân Cẩm Lệ", "100 Trường Chinh"));
         list.add(new FieldInfo("Sân Hòa Khánh", "20 Nam Cao"));
         list.add(new FieldInfo("Sân Sơn Trà", "22 Ngô Quyền"));
-        list.add(new FieldInfo("Sân Bóng", "10 Trần Cao Vân"));
+        list.add(new FieldInfo("Sân Thanh Khê", "10 Trần Cao Vân"));
         return list;
     }
 
