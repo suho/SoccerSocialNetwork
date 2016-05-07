@@ -13,7 +13,7 @@ public class LoginManagerDao extends DataBaseHelper {
         myDatabase=getMyDataBase();
        this. myConText=context;
     }
-    public boolean isValidLogin(String username, String password) {
+    public boolean checkLogin(String username, String password) {
         String sql = "SELECT * FROM user_profiles where username='" + username + "' and password='" + password +"'";
         Cursor cursor = myDatabase.rawQuery(sql, null);
         if (cursor.moveToFirst()) {

@@ -10,16 +10,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center_horizontal|top"
-        android:weightSum="1">
-
-        <ImageView
-            android:layout_width="123dp"
-            android:layout_height="134dp"
-            android:id="@+id/imageView3"
-            android:layout_gravity="center_horizontal"
-            android:background="@mipmap/icon_user"
-            android:layout_weight="0.08"
-            android:layout_marginTop="20dp" />
+        android:weightSum="1"
+        android:focusableInTouchMode="true"
+        android:background="@mipmap/profile_background">
 
         <TextView
             android:layout_width="wrap_content"
@@ -76,7 +69,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPhonetic"
-            android:text="0935307484"
+            android:text="012345678"
             android:ems="10"
             android:id="@+id/phone_profile"
             android:layout_gravity="center_horizontal"
