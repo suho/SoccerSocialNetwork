@@ -1,0 +1,108 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mad.hovansu.soccersocialnetwork.fragment.ProfileFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal|top"
+        android:weightSum="1">
+
+        <ImageView
+            android:layout_width="123dp"
+            android:layout_height="134dp"
+            android:id="@+id/imageView3"
+            android:layout_gravity="center_horizontal"
+            android:background="@mipmap/icon_user"
+            android:layout_weight="0.08"
+            android:layout_marginTop="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Username:"
+            android:id="@+id/textUser"
+            android:layout_weight="0"
+            android:layout_marginTop="30dp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="Hồ Văn Sự"
+            android:ems="10"
+            android:id="@+id/username_profile"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.08"
+            android:editable="true"
+            android:gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Email:"
+            android:id="@+id/textEmail"
+            android:layout_weight="0"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:text="hovansu8@gmail.com"
+            android:ems="10"
+            android:id="@+id/email_profile"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.08"
+            android:editable="false"
+
+            android:gravity="center_horizontal" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Phone:"
+            android:id="@+id/textPhone"
+            android:layout_weight="0"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPhonetic"
+            android:text="0935307484"
+            android:ems="10"
+            android:id="@+id/phone_profile"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.08"
+            android:editable="true"
+
+            android:gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Địa Chỉ:"
+            android:id="@+id/textAddress"
+            android:layout_weight="0"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPostalAddress"
+            android:text="Đà Nẵng"
+            android:id="@+id/address_profile"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.08"
+            android:editable="true"
+
+            android:gravity="center_horizontal" />
+    </LinearLayout>
+</FrameLayout>
