@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -15,6 +16,8 @@ import android.widget.TextView;
 
 import com.mad.hovansu.soccersocialnetwork.R;
 import com.mad.hovansu.soccersocialnetwork.activity.CreateMatchActivity;
+import com.mad.hovansu.soccersocialnetwork.activity.DetailFieldActivity;
+import com.mad.hovansu.soccersocialnetwork.activity.DetailMatchActivity;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -48,8 +51,25 @@ public class MatchFragment extends Fragment {
 
         listView = (ListView) v.findViewById(R.id.listView);
         listView.setAdapter(new MatchAdapter(getContext()));
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                Intent intent = new Intent(getActivity(), DetailMatchActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
 
         return v;
+    }
+
+    private ArrayList<MatchInfo> createMatchData() {
+        ArrayList<MatchInfo> list = new ArrayList<>();
+        list.add(new MatchInfo("San 1", new Date(2016, 05, 07), 15));
+        list.add(new MatchInfo("San 2", new Date(2016, 04, 17), 15));
+        list.add(new MatchInfo("San 3", new Date(2016, 04, 25), 15));
+        list.add(new MatchInfo("San 4", new Date(2016, 03, 27), 15));
+        list.add(new MatchInfo("San 5", new Date(2016, 04, 12), 15));
+        return list;
     }
 
     class MatchInfo {
@@ -57,21 +77,21 @@ public class MatchFragment extends Fragment {
         Date date;
         int player;
 
-        MatchInfo(String name, Date date, int player){
+        MatchInfo(String name, Date date, int player) {
             this.name = name;
             this.date = date;
             this.player = player;
         }
 
-        public String getName(){
+        public String getName() {
             return name;
         }
 
-        public Date getDate(){
+        public Date getDate() {
             return date;
         }
 
-        public int getPlayer(){
+        public int getPlayer() {
             return player;
         }
 
@@ -89,9 +109,10 @@ public class MatchFragment extends Fragment {
         private LayoutInflater inflater;
         private ArrayList<MatchInfo> info = new ArrayList<>();
 
-        public MatchAdapter(Context context){
+        public MatchAdapter(Context context) {
             this.context = context;
             inflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            info = createMatchData();
         }
 
         @Override
@@ -112,7 +133,7 @@ public class MatchFragment extends Fragment {
         @Override
         public View getView(int position, View view, ViewGroup viewGroup) {
             ViewHolder holder = null;
-            if(view == null){
+            if (view == null) {
                 holder = new ViewHolder();
                 view = inflater.inflate(R.layout.list_item_match, null);
                 holder.txtName = (TextView) view.findViewById(R.id.text_name);
@@ -126,6 +147,9 @@ public class MatchFragment extends Fragment {
             holder.txtDate.setId(position);
             holder.txtPlayer.setId(position);
             holder.id = position;
+            holder.txtName.setText(info.get(position).getName());
+            holder.txtName.setText(info.get(position).getDate().toString());
+            holder.txtPlayer.setText(info.get(position).getPlayer() + "");
 
             return view;
         }

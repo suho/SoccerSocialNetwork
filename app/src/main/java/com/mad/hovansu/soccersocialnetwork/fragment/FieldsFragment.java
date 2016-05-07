@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -15,8 +16,10 @@ import android.widget.TextView;
 
 import com.mad.hovansu.soccersocialnetwork.R;
 import com.mad.hovansu.soccersocialnetwork.activity.CreateFieldActivity;
+import com.mad.hovansu.soccersocialnetwork.activity.DetailFieldActivity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -47,8 +50,24 @@ public class FieldsFragment extends Fragment {
 
         listView = (ListView) v.findViewById(R.id.listView);
         listView.setAdapter(new FieldAdapter(getContext()));
-
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                Intent intent = new Intent(getActivity(), DetailFieldActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
         return v;
+    }
+
+    private ArrayList<FieldInfo> createFieldData(){
+        ArrayList<FieldInfo> list = new ArrayList<>();
+        list.add(new FieldInfo("San 1", "255 Ton Duc Thang"));
+        list.add(new FieldInfo("San 2", "255 Ton Duc Thang"));
+        list.add(new FieldInfo("San 3", "255 Ton Duc Thang"));
+        list.add(new FieldInfo("San 4", "255 Ton Duc Thang"));
+        list.add(new FieldInfo("San 5", "255 Ton Duc Thang"));
+        return list;
     }
 
     class FieldInfo {
@@ -84,6 +103,7 @@ public class FieldsFragment extends Fragment {
         public FieldAdapter(Context context){
             this.context = context;
             inflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            info = createFieldData();
         }
 
         @Override
@@ -116,7 +136,8 @@ public class FieldsFragment extends Fragment {
             holder.txtName.setId(position);
             holder.txtAddress.setId(position);
             holder.id = position;
-
+            holder.txtName.setText(info.get(position).getName());
+            holder.txtAddress.setText(info.get(position).getAddress());
             return view;
         }
     }
